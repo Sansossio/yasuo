@@ -1,5 +1,5 @@
 {
-  "npmScope": "monorepo-yasuo",
+  "npmScope": "yasuogg",
   "affected": {
     "defaultBase": "master"
   },
