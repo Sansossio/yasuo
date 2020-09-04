@@ -1,0 +1,31 @@
+{
+  "rulesDirectory": [
+      "node_modules/@nrwl/workspace/src/tslint",
+      "node_modules/codelyzer"
+  ],
+  "linterOptions": {
+      "exclude": ["**/*"]
+  },
+  "extends": [
+      "tslint-config-standard",
+      "tslint-etc"
+  ],
+  "rules": {
+      "no-unused-declaration": true,
+      "await-promise": false,
+      "no-floating-promises": false,
+      "no-unnecessary-qualifier": false,
+      "no-empty": false,
+      "nx-enforce-module-boundaries": [
+          true,
+          {
+              "enforceBuildableLibDependency": true,
+              "allow": [],
+              "depConstraints": [{
+                  "sourceTag": "*",
+                  "onlyDependOnLibsWithTags": ["*"]
+              }]
+          }
+      ]
+  }
+}
