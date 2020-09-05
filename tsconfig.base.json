@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@yasuogg/http": ["libs/http/src/index.ts"]
+      "@yasuogg/http": ["libs/http/src/index.ts"],
+      "@yasuogg/riot-games": ["libs/riot-games/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

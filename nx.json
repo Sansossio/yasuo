@@ -27,6 +27,9 @@
     },
     "http": {
       "tags": []
+    },
+    "riot-games": {
+      "tags": []
     }
   }
 }

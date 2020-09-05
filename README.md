@@ -2,7 +2,10 @@
 
 ## Environment variables
 ```env
-RIOT_GAMES_API_KEY=
+# Riot games
+RIOT_API_KEY=
+RIOT_DEBUG=true
+RIOT_CONCURRENCY=5
 ```
 
 ## Swagger

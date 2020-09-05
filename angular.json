@@ -83,6 +83,32 @@
           }
         }
       }
+    },
+    "riot-games": {
+      "root": "libs/riot-games",
+      "sourceRoot": "libs/riot-games/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/riot-games/tsconfig.lib.json",
+              "libs/riot-games/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/riot-games/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/riot-games/jest.config.js",
+            "tsConfig": "libs/riot-games/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
