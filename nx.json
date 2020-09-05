@@ -21,5 +21,12 @@
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "summoner": {
+      "tags": []
+    },
+    "http": {
+      "tags": []
+    }
+  }
 }

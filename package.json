@@ -29,18 +29,23 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/compiler": "^10.1.0",
     "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
+    "@nestjs/swagger": "^4.6.0",
     "@nrwl/angular": "10.1.0",
+    "class-transformer": "^0.3.1",
+    "class-validator": "^0.12.2",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "~6.5.5"
+    "rxjs": "~6.5.5",
+    "swagger-ui-express": "^4.1.4",
+    "uuid": "^8.3.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1000.0",
     "@angular/cli": "~10.0.0",
     "@angular/compiler-cli": "^10.0.0",
-    "@angular/language-service": "^10.0.0",
     "@nestjs/schematics": "^7.0.0",
     "@nestjs/testing": "^7.0.0",
     "@nrwl/jest": "10.1.0",

@@ -6,7 +6,7 @@ RIOT_GAMES_API_KEY=
 ```
 
 ## Swagger
-### Api
+### Summoners api
 Url: [http://localhost:3000/api](http://localhost:3000)
 
 ## NX workflow
