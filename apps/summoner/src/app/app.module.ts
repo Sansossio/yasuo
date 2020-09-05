@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common'
-import { HttpModule } from '@yasuogg/http'
+import { InternalModule } from './internal.module'
 
 @Module({
   imports: [
-    HttpModule
+    InternalModule
   ],
   controllers: [],
   providers: []
