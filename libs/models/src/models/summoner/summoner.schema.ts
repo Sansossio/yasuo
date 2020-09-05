@@ -1,12 +1,13 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
+import { Prop, SchemaFactory, Schema } from '@nestjs/mongoose'
 import { BaseDocument } from '../base.document'
 import { Summoner } from './summoner.interface'
 import { RegisterSchema } from '../../type/register-schema.type'
 import { Regions } from 'twisted/dist/constants'
+import { baseOptionsDocument } from '../base-options.document'
 
 const SCHEMA_NAME = 'summoner'
 
-@Schema()
+@Schema(baseOptionsDocument)
 export class SummonerDocument extends BaseDocument implements Summoner {
   @Prop()
   id: string
