@@ -6,6 +6,11 @@
 RIOT_API_KEY=
 RIOT_DEBUG=true
 RIOT_CONCURRENCY=5
+RIOT_RATE_LIMIT_RETRY=true
+RIOT_RATE_LIMIT_RETRY_ATTEMPTS= 5
+
+# Database
+DATABASE_URI=mongodb://root:123456@127.0.0.1:27017/yasuogg?authSource=admin
 ```
 
 ## Swagger

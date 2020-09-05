@@ -30,6 +30,12 @@
     },
     "riot-games": {
       "tags": []
+    },
+    "database": {
+      "tags": []
+    },
+    "models": {
+      "tags": []
     }
   }
 }
