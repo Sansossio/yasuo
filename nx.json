@@ -36,6 +36,9 @@
     },
     "models": {
       "tags": []
+    },
+    "api-interfaces": {
+      "tags": []
     }
   }
 }

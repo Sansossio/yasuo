@@ -19,7 +19,8 @@
       "@yasuogg/http": ["libs/http/src/index.ts"],
       "@yasuogg/riot-games": ["libs/riot-games/src/index.ts"],
       "@yasuogg/database": ["libs/database/src/index.ts"],
-      "@yasuogg/models": ["libs/models/src/index.ts"]
+      "@yasuogg/models": ["libs/models/src/index.ts"],
+      "@yasuogg/api-interfaces": ["libs/api-interfaces/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

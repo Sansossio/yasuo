@@ -4,6 +4,7 @@ import { GetSummonerByNameDto } from '../dto/get-summoner-by-name.dto'
 import { SummonerSchema, SummonerDocument } from '@yasuogg/models'
 import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
+import { GetSummonerDto } from '../dto/get-summoner.dto'
 
 @Injectable()
 export class SummonerService {
@@ -14,7 +15,7 @@ export class SummonerService {
     private readonly riotService: RiotGamesService
   ) {}
 
-  async getByName ({ summonerName, region }: GetSummonerByNameDto) {
+  async getByName ({ summonerName, region }: GetSummonerByNameDto): Promise<GetSummonerDto> {
     const exists = await this.repository.findOne({
       name: {
         // Case insentive
@@ -23,13 +24,13 @@ export class SummonerService {
       region
     })
     if (exists) {
-      return exists
+      return GetSummonerDto.fromRiotData(exists)
     }
     const { response } = await this.lolApi.Summoner.getByName(summonerName, region)
     await this.repository.create({
       ...response,
       region
     })
-    return response
+    return this.getByName({ summonerName, region })
   }
 }
