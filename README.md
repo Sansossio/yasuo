@@ -25,15 +25,15 @@ Module **not** needed to use this library.
 
 `nx generate @nrwl/workspace:library mylib`
 
-Import from `@peooplev2/mylib`.
+Import from `@yasuogg/mylib`.
 
 ### Generate an Angular library
 
 `nx generate @nrwl/angular:lib my-lib`
 
-Use prefix `@peooplev2`.
+Use prefix `@yasuogg`.
 
-Import from `@peooplev2/mylib`.
+Import from `@yasuogg/mylib`.
 
 ### Generate a Nest library
 
@@ -41,9 +41,9 @@ This should be preferred option to create Nest libraries since this command add 
 
 `nx generate @nrwl/nest:library my-lib`
 
-Use prefix `@peooplev2`.
+Use prefix `@yasuogg`.
 
-Import from `@peooplev2/mylib`.
+Import from `@yasuogg/mylib`.
 
 ### Delete lib, app
 
