@@ -3,6 +3,7 @@ import { GetSummonerByNameDto } from '../dto/get-summoner-by-name.dto'
 import { SummonerService } from '../service/summoner.service'
 import { ApiTags, ApiOkResponse, ApiOperation } from '@nestjs/swagger'
 import { GetSummonerDto } from '../dto/get-summoner.dto'
+import { ApiErrorResponse } from '@yasuogg/http'
 
 @Controller()
 @ApiTags('Summoners')
@@ -13,6 +14,7 @@ export class SummonerController {
 
   @Get()
   @ApiOkResponse({ type: GetSummonerDto })
+  @ApiErrorResponse()
   @ApiOperation({
     summary: 'Get summoner by name'
   })
@@ -24,6 +26,7 @@ export class SummonerController {
 
   @Post('update')
   @ApiOkResponse({ type: GetSummonerDto })
+  @ApiErrorResponse()
   @ApiOperation({
     summary: 'Update summoner by name'
   })
