@@ -12,9 +12,6 @@ export class GetSummonerDto implements GetSummoner {
   profileIconId: number
 
   @ApiProperty()
-  revisionDate: Date
-
-  @ApiProperty()
   level: number
 
   @ApiProperty({
@@ -31,7 +28,6 @@ export class GetSummonerDto implements GetSummoner {
     return {
       name: summoner.name,
       level: summoner.summonerLevel,
-      revisionDate: new Date(summoner.revisionDate),
       profileIconId: summoner.profileIconId,
       region: summoner.region,
       ids: {
