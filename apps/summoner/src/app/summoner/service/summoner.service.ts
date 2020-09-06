@@ -22,7 +22,7 @@ export class SummonerService {
       ...response,
       region
     }
-    await this.repository.update({ puuid: response.puuid }, summonerInstance, { upsert: true })
+    await this.repository.updateOne({ puuid: response.puuid }, summonerInstance, { upsert: true })
     return this.getByName({ summonerName, region })
   }
 
