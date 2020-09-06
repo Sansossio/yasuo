@@ -1,7 +1,11 @@
 import { INestApplication } from '@nestjs/common'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 
-export const setupSwagger = (app: INestApplication, title: string, path: string = 'api') => {
+export const setupSwagger = (
+  app: INestApplication,
+  title: string,
+  path: string = 'api'
+) => {
   const options = new DocumentBuilder()
     .setTitle(title)
     .addBearerAuth()

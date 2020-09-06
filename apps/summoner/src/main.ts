@@ -10,7 +10,7 @@ async function bootstrap () {
   const app = await NestFactory.create(AppModule)
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }))
   app.setGlobalPrefix(GLOBAL_PREFIX)
-  setupSwagger(app, APP_TITLE)
+  setupSwagger(app, APP_TITLE, `${GLOBAL_PREFIX}/api`)
   const port = process.env.PORT || 3000
   await app.listen(port)
 }
