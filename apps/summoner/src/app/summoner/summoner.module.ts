@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common'
+import { Module, forwardRef } from '@nestjs/common'
 import { SummonerController } from './controller/summoner.controller'
 import { SummonerService } from './service/summoner.service'
 import { DatabaseModule } from '@yasuogg/database'
@@ -10,12 +10,15 @@ import { LeaguesModule } from '../leagues/leagues.module'
     DatabaseModule.forFeature([
       SummonerSchema
     ]),
-    LeaguesModule
+    forwardRef(() => LeaguesModule)
   ],
   controllers: [
     SummonerController
   ],
   providers: [
+    SummonerService
+  ],
+  exports: [
     SummonerService
   ]
 })

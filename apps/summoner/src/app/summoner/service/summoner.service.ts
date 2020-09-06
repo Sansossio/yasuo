@@ -30,6 +30,11 @@ export class SummonerService {
       },
       { upsert: true }
     )
+
+    // Add new summoner leagues
+    const summoner = await this.get({ summonerName, region })
+    await this.leagueService.saveLeagues(summoner, leagues)
+
     return this.getByName({ summonerName, region })
   }
 
