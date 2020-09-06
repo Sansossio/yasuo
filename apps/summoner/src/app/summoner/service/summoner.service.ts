@@ -34,16 +34,20 @@ export class SummonerService {
   }
 
   async getByName ({ summonerName, region }: GetSummonerByNameDto): Promise<GetSummonerDto> {
-    const exists = await this.repository.findOne({
+    const exists = await this.get({ summonerName, region })
+    if (exists) {
+      return GetSummonerDto.fromRiotData(exists)
+    }
+    return this.upsert(summonerName, region)
+  }
+
+  async get ({ summonerName, region }: GetSummonerByNameDto) {
+    return this.repository.findOne({
       name: {
         // Case insentive
         $regex: new RegExp(`^${summonerName.toLowerCase()}$`, 'i')
       },
       region
     })
-    if (exists) {
-      return GetSummonerDto.fromRiotData(exists)
-    }
-    return this.upsert(summonerName, region)
   }
 }
