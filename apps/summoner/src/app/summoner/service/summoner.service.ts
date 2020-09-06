@@ -18,17 +18,11 @@ export class SummonerService {
 
   async upsert (summonerName: string, region: Regions) {
     const { response } = await this.lolApi.Summoner.getByName(summonerName, region)
-    const condition = {
-      puuid: response.puuid
-    }
     const summonerInstance = {
       ...response,
       region
     }
-    const options = {
-      upsert: true
-    }
-    await this.repository.update(condition, summonerInstance, options)
+    await this.repository.update({ puuid: response.puuid }, summonerInstance, { upsert: true })
     return this.getByName({ summonerName, region })
   }
 
