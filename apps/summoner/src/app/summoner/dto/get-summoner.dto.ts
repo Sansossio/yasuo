@@ -3,6 +3,7 @@ import { ApiProperty } from '@nestjs/swagger'
 import { Summoner } from '@yasuogg/models'
 import { Regions } from 'twisted/dist/constants'
 import { GetSummonerIdsDto } from './get-summoner.ids.dto'
+import { GetSummonerLeagueDto } from './get-summoner.league.dto'
 
 export class GetSummonerDto implements GetSummoner {
   @ApiProperty()
@@ -24,7 +25,12 @@ export class GetSummonerDto implements GetSummoner {
   })
   ids: GetSummonerIdsDto
 
-  static fromModel (summoner: Summoner): GetSummonerDto {
+  @ApiProperty({
+    type: [GetSummonerLeagueDto]
+  })
+  leagues: GetSummonerLeagueDto[]
+
+  static fromRiotData (summoner: Summoner): GetSummonerDto {
     return {
       name: summoner.name,
       level: summoner.summonerLevel,
@@ -34,7 +40,8 @@ export class GetSummonerDto implements GetSummoner {
         summonerId: summoner.id,
         accountId: summoner.accountId,
         puuid: summoner.puuid
-      }
+      },
+      leagues: summoner.leagues.map(GetSummonerLeagueDto.fromRiotData)
     }
   }
 }

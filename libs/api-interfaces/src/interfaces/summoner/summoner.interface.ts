@@ -1,5 +1,19 @@
 import { Regions } from 'twisted/dist/constants'
 
+export interface GetSummonerLeague {
+  queueType: string
+  hotStreak: boolean
+  wins: number
+  veteran: boolean
+  losses: number
+  rank: string
+  leagueId: string
+  inactive: boolean
+  freshBlood: boolean
+  tier: string
+  leaguePoints: number
+}
+
 export interface GetSummoner {
   name: string
   profileIconId: number
@@ -10,4 +24,5 @@ export interface GetSummoner {
     accountId: string
     puuid: string
   }
+  leagues: GetSummonerLeague[]
 }

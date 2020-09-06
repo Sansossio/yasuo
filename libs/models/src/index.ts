@@ -5,3 +5,4 @@ export * from './type/register-schema.type'
 /* Summoner */
 export * from './models/summoner/summoner.schema'
 export * from './models/summoner/summoner.interface'
+export * from './models/summoner/summoner-league.schema'

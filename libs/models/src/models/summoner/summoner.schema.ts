@@ -4,6 +4,7 @@ import { Summoner } from './summoner.interface'
 import { RegisterSchema } from '../../type/register-schema.type'
 import { Regions } from 'twisted/dist/constants'
 import { baseOptionsDocument } from '../base-options.document'
+import { SummonerLeagueDocument } from './summoner-league.schema'
 
 const SCHEMA_NAME = 'summoner'
 
@@ -34,6 +35,11 @@ export class SummonerDocument extends BaseDocument implements Summoner {
     type: 'string'
   })
   region: Regions
+
+  @Prop({
+    type: SummonerLeagueDocument
+  })
+  leagues: SummonerLeagueDocument[]
 }
 
 export const SummonerSchema: RegisterSchema = {
