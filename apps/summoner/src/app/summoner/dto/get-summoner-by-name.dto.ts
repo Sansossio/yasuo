@@ -5,13 +5,16 @@ import { ApiProperty } from '@nestjs/swagger'
 export class GetSummonerByNameDto {
   @IsString()
   @IsNotEmpty()
-  @ApiProperty()
+  @ApiProperty({
+    example: 'Yasuiito'
+  })
   summonerName: string
 
   @IsEnum(Regions)
   @IsNotEmpty()
   @ApiProperty({
-    enum: Regions
+    enum: Regions,
+    example: Regions.EU_WEST
   })
   region: Regions
 }

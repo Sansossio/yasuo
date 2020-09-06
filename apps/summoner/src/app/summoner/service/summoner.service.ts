@@ -5,6 +5,7 @@ import { SummonerSchema, SummonerDocument } from '@yasuogg/models'
 import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
 import { GetSummonerDto } from '../dto/get-summoner.dto'
+import { Regions } from 'twisted/dist/constants'
 
 @Injectable()
 export class SummonerService {
@@ -14,6 +15,22 @@ export class SummonerService {
     @InjectModel(SummonerSchema.name) private readonly repository: Model<SummonerDocument>,
     private readonly riotService: RiotGamesService
   ) {}
+
+  async upsert (summonerName: string, region: Regions) {
+    const { response } = await this.lolApi.Summoner.getByName(summonerName, region)
+    const condition = {
+      puuid: response.puuid
+    }
+    const summonerInstance = {
+      ...response,
+      region
+    }
+    const options = {
+      upsert: true
+    }
+    await this.repository.update(condition, summonerInstance, options)
+    return this.getByName({ summonerName, region })
+  }
 
   async getByName ({ summonerName, region }: GetSummonerByNameDto): Promise<GetSummonerDto> {
     const exists = await this.repository.findOne({
@@ -26,11 +43,6 @@ export class SummonerService {
     if (exists) {
       return GetSummonerDto.fromRiotData(exists)
     }
-    const { response } = await this.lolApi.Summoner.getByName(summonerName, region)
-    await this.repository.create({
-      ...response,
-      region
-    })
-    return this.getByName({ summonerName, region })
+    return this.upsert(summonerName, region)
   }
 }

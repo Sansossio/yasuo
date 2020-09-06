@@ -1,4 +1,4 @@
-import { Controller, Get, Query } from '@nestjs/common'
+import { Controller, Get, Query, Post, Body } from '@nestjs/common'
 import { GetSummonerByNameDto } from '../dto/get-summoner-by-name.dto'
 import { SummonerService } from '../service/summoner.service'
 import { ApiTags, ApiOkResponse, ApiOperation } from '@nestjs/swagger'
@@ -20,5 +20,16 @@ export class SummonerController {
     @Query() params: GetSummonerByNameDto
   ) {
     return this.service.getByName(params)
+  }
+
+  @Post('update')
+  @ApiOkResponse({ type: GetSummonerDto })
+  @ApiOperation({
+    summary: 'Update summoner by name'
+  })
+  updateSummoner (
+    @Body() body: GetSummonerByNameDto
+  ) {
+    return this.service.upsert(body.summonerName, body.region)
   }
 }
