@@ -35,7 +35,7 @@ export class SummonerService {
       region
     })
     if (exists) {
-      return GetSummonerDto.fromRiotData(exists)
+      return GetSummonerDto.fromModel(exists)
     }
     return this.upsert(summonerName, region)
   }

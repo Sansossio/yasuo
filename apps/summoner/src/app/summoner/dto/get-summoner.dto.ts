@@ -24,7 +24,7 @@ export class GetSummonerDto implements GetSummoner {
   })
   ids: GetSummonerIdsDto
 
-  static fromRiotData (summoner: Summoner): GetSummonerDto {
+  static fromModel (summoner: Summoner): GetSummonerDto {
     return {
       name: summoner.name,
       level: summoner.summonerLevel,
