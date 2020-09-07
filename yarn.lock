@@ -10884,10 +10884,10 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
   integrity sha1-WuaBd/GS1EViadEIr6k/+HQ/T2Q=
 
-twisted@^1.26.0:
-  version "1.26.0"
-  resolved "https://registry.yarnpkg.com/twisted/-/twisted-1.26.0.tgz#61069c28068ce1277e1600b411394ea3a02dd9ab"
-  integrity sha512-IRiz5GTNxb5s6YvN59ylAwgpuxDSAAm7J5HtyVF1QeG/ylX4orn5b3+R66/EskjEIvNFZrQGgAR4OmRPkFrjdA==
+twisted@1.27.0:
+  version "1.27.0"
+  resolved "https://registry.yarnpkg.com/twisted/-/twisted-1.27.0.tgz#23e28bcf68914eac732e226830c04d4aac327df4"
+  integrity sha512-cpGsf4r5vkT+uuxLcWuaa//kt4BneVst5fwwlkxQ1ce/PFAQ4Q4+r2YEJ0L0fQcBV1659GaOpPH1F70dNdxHJA==
   dependencies:
     camelcasejs "^1.0.3"
     dotenv "^8.1.0"
@@ -10896,6 +10896,7 @@ twisted@^1.26.0:
     promise-queue "^2.2.5"
     request "^2.88.0"
     request-promise "^4.2.4"
+    uuid "^8.3.0"
 
 type-check@~0.3.2:
   version "0.3.2"
