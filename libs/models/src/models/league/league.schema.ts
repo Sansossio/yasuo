@@ -46,6 +46,9 @@ export class LeagueDocument extends BaseDocument implements League {
 
   @Prop()
   leaguePoints: number
+
+  @Prop()
+  mmr: number
 }
 
 export const LeagueSchema: RegisterSchema = {

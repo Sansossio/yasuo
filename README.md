@@ -2,6 +2,9 @@
 
 ## Environment variables
 ```env
+# Services
+MMR_SERVICE_URL=http://localhost:3333/mmr
+
 # Riot games
 RIOT_API_KEY=
 RIOT_DEBUG=true
@@ -15,7 +18,10 @@ DATABASE_URI=mongodb://root:123456@127.0.0.1:27017/yasuogg?authSource=admin
 
 ## Swagger
 ### Summoners api
-Url: [http://localhost:3000/api](http://localhost:3000)
+Url: [http://localhost:3000/summoner/api](http://localhost:3000/summoner/api)
+
+### Mmr api
+Url: [http://localhost:3333/mmr/api](http://localhost:3333/mmr/api)
 
 ## NX workflow
 

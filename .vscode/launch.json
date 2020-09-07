@@ -7,8 +7,18 @@
     {
       "type": "node",
       "request": "attach",
-      "name": "api",
+      "name": "Summoner api",
       "port": 9229,
+      "restart": true,
+      "protocol": "inspector",
+      "sourceMaps": true,
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Mmr api",
+      "port": 9230,
       "restart": true,
       "protocol": "inspector",
       "sourceMaps": true,

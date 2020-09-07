@@ -36,7 +36,10 @@ export class SummonerLeagueDocument implements SummonerLeague {
   @Prop()
   leaguePoints: number
 
-  static fromRiotData (league: SummonerLeagueDto): SummonerLeagueDocument {
+  @Prop()
+  mmr: number
+
+  static fromRiotData (league: SummonerLeagueDto, mmr: number): SummonerLeagueDocument {
     return {
       queueType: league.queueType,
       hotStreak: league.hotStreak,
@@ -48,7 +51,8 @@ export class SummonerLeagueDocument implements SummonerLeague {
       inactive: league.inactive,
       freshBlood: league.freshBlood,
       tier: league.tier,
-      leaguePoints: league.leaguePoints
+      leaguePoints: league.leaguePoints,
+      mmr
     }
   }
 }
