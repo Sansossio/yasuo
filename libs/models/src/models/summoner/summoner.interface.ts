@@ -12,7 +12,6 @@ export interface SummonerLeague {
   freshBlood: boolean
   tier: string
   leaguePoints: number
-  mmr: number
 }
 
 export interface Summoner {
