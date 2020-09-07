@@ -187,6 +187,61 @@
           }
         }
       }
+    },
+    "mmr": {
+      "root": "apps/mmr",
+      "sourceRoot": "apps/mmr/src",
+      "projectType": "application",
+      "prefix": "mmr",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/mmr",
+            "main": "apps/mmr/src/main.ts",
+            "tsConfig": "apps/mmr/tsconfig.app.json",
+            "assets": ["apps/mmr/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/mmr/src/environments/environment.ts",
+                  "with": "apps/mmr/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "mmr:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/mmr/tsconfig.app.json",
+              "apps/mmr/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/mmr/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/mmr/jest.config.js",
+            "tsConfig": "apps/mmr/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
