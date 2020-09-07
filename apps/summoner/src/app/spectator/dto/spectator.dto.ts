@@ -3,6 +3,7 @@ import { ApiProperty } from '@nestjs/swagger'
 import { SpectatorBannedChampDto } from './spectator-banned-champion.dto'
 import { SpectatorParticipant } from './spectator-participant.dto'
 import { CurrentGameInfoDTO } from 'twisted/dist/models-dto'
+import { GetSummonerDto } from '../../summoner/dto/get-summoner.dto'
 
 export class SpectatorDto implements Spectator {
   @ApiProperty()
@@ -36,7 +37,7 @@ export class SpectatorDto implements Spectator {
   @ApiProperty()
   gameLength: number
 
-  static fromRiotData (riotData: CurrentGameInfoDTO): SpectatorDto {
+  static fromRiotData (riotData: CurrentGameInfoDTO, summonerList: GetSummonerDto[]): SpectatorDto {
     return {
       gameId: riotData.gameId,
       gameStartTime: riotData.gameStartTime,
@@ -45,7 +46,10 @@ export class SpectatorDto implements Spectator {
       mapId: riotData.mapId,
       gameType: riotData.gameType,
       bannedChampions: riotData.bannedChampions.map(SpectatorBannedChampDto.fromRiotData),
-      participants: riotData.participants.map(SpectatorParticipant.fromRiotData),
+      participants: riotData.participants.map((participant) => {
+        const summoner = summonerList.find(sm => sm.name === participant.summonerName)
+        return SpectatorParticipant.fromRiotData(participant, summoner)
+      }),
       gameLength: riotData.gameLength
     }
   }

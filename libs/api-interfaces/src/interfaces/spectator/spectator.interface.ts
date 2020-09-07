@@ -1,15 +1,14 @@
 import { PerksDTO, BannedChampion } from 'twisted/dist/models-dto'
+import { GetSummoner } from '../summoner/summoner.interface'
 
 export interface SpectatorCurrentParticipant {
   profileIconId: number
   championId: number
-  summonerName: string
   bot: boolean
   perks: PerksDTO
-  spell2Id: number
+  spells: [number, number]
   teamId: number
-  spell1Id: number
-  summonerId: string
+  summoner: GetSummoner
 }
 
 export interface Spectator {

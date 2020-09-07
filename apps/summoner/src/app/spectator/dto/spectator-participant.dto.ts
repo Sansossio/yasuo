@@ -2,6 +2,7 @@ import { SpectatorCurrentParticipant } from '@yasuogg/api-interfaces'
 import { SpectatorParticipantPerks } from './spectator-perks.dto'
 import { CurrentGameParticipantDTO } from 'twisted/dist/models-dto'
 import { ApiProperty } from '@nestjs/swagger'
+import { GetSummonerDto } from '../../summoner/dto/get-summoner.dto'
 
 export class SpectatorParticipant implements SpectatorCurrentParticipant {
   @ApiProperty()
@@ -11,37 +12,33 @@ export class SpectatorParticipant implements SpectatorCurrentParticipant {
   championId: number
 
   @ApiProperty()
-  summonerName: string
-
-  @ApiProperty()
   bot: boolean
 
   @ApiProperty()
   perks: SpectatorParticipantPerks
 
   @ApiProperty()
-  spell2Id: number
-
-  @ApiProperty()
   teamId: number
 
-  @ApiProperty()
-  spell1Id: number
+  @ApiProperty({
+    type: [Number, Number]
+  })
+  spells: [number, number]
 
-  @ApiProperty()
-  summonerId: string
+  @ApiProperty({
+    type: GetSummonerDto
+  })
+  summoner: GetSummonerDto
 
-  static fromRiotData (data: CurrentGameParticipantDTO): SpectatorParticipant {
+  static fromRiotData (data: CurrentGameParticipantDTO, summoner: GetSummonerDto): SpectatorParticipant {
     return {
       profileIconId: data.profileIconId,
       championId: data.championId,
-      summonerName: data.summonerName,
       bot: data.bot,
       perks: data.perks,
-      spell2Id: data.spell2Id,
       teamId: data.teamId,
-      spell1Id: data.spell1Id,
-      summonerId: data.summonerId
+      spells: [data.spell1Id, data.spell2Id],
+      summoner
     }
   }
 }

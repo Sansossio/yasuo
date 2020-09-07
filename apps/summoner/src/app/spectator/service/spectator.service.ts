@@ -23,6 +23,13 @@ export class SpectatorService {
       throw new NotFoundException(data.message)
     }
     const { response } = data
-    return SpectatorDto.fromRiotData(response)
+    const summonerList = await Promise.all(
+      response
+        .participants
+        .map(
+          ({ summonerName }) => this.summonerService.getByName({ summonerName, region })
+        )
+    )
+    return SpectatorDto.fromRiotData(response, summonerList)
   }
 }
