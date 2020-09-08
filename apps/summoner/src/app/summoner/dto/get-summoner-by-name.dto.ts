@@ -6,7 +6,7 @@ export class GetSummonerByNameDto {
   @IsString()
   @IsNotEmpty()
   @ApiProperty({
-    example: 'Yasuiito'
+    example: 'El Castiel'
   })
   summonerName: string
 
