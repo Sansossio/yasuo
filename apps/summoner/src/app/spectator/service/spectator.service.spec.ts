@@ -23,6 +23,10 @@ describe('Spectator service', () => {
     region: Regions.AMERICA_NORTH
   }
 
+  beforeEach(() => {
+    jest.clearAllMocks()
+  })
+
   it('should throw NotFoundException when summoner does not exists', async () => {
     summonerService.getByName.mockImplementation(() => Promise.resolve(null))
 
