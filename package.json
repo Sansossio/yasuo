@@ -10,6 +10,7 @@
     "start:all": "nx run-many --target=serve --all=true --parallel",
     "build": "ng build",
     "test": "ng test",
+    "test:cov": "ng test --code-coverage",
     "lint": "nx workspace-lint && ng lint",
     "e2e": "ng e2e",
     "affected:apps": "nx affected:apps",
