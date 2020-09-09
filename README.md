@@ -1,5 +1,9 @@
 # Yasuo Monorepo
 
+Yasuo is a League Of Legends api project based on [twisted library](https://www.npmjs.com/package/twisted)
+
+The goal is to createa full league of legends stats api (and maybe a frontend, I don't know yet)
+
 ## Environment variables
 ```env
 # Services
